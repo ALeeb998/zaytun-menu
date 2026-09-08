@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zaytoun — Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Amiri:wght@400;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --forest: #1f3527;
+        --forest-2: #2a452f;
+        --rust: #c1502e;
+        --cream: #f5eedd;
+        --mustard: #e3a72e;
+        --ink: #221c13;
+        --paper: #ede3c8;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-image: url("zaytoun-bg.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: "Inter", sans-serif;
+        color: var(--ink);
+      }
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 36px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 22px;
+      }
+      .card {
+        border-radius: 28px;
+        padding: 30px 28px;
+        box-shadow: 0 6px 18px rgba(34, 28, 19, 0.1);
+      }
+      /* ---- hero ---- */
+      .hero {
+        grid-column: span 12;
+        background: var(--cream);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 34px 44px;
+      }
+
+      .hero .type h1 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 800;
+        font-size: 52px;
+        margin: 0;
+        color: var(--forest);
+        letter-spacing: -0.5px;
+      }
+      .hero .type .ar {
+        font-family: "Amiri", serif;
+        font-size: 24px;
+        color: var(--rust);
+        direction: rtl;
+        margin: 2px 0 8px;
+      }
+
+      .hero .type .p {
+        color: green;
+      }
+
+      .hero .type .tag {
+        font-size: 14px;
+        color: var(--ink);
+        opacity: 0.65;
+        font-weight: 500;
+        margin: 0;
+        text-align: left;
+        padding-left: 53px;
+      }
+      .hero svg.mark {
+        width: 130px;
+        height: 130px;
+        flex: none;
+      }
+
+      /* ---- category cards ---- */
+      .cat {
+        display: flex;
+        flex-direction: column;
+      }
+      .cat.dark {
+        background: var(--forest);
+        color: var(--cream);
+      }
+      .cat.rust {
+        background: var(--rust);
+        color: var(--cream);
+      }
+      .cat.light {
+        background: var(--cream);
+        color: var(--ink);
+      }
+      .cat.mustard {
+        background: var(--mustard);
+        color: var(--forest);
+      }
+
+      .cat-head {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .cat-head svg {
+        width: 26px;
+        height: 26px;
+        flex: 0 0 26px;
+        margin-top: 1px;
+      }
+
+      .cat-head .titles {
+        display: flex;
+        margin-left: 10px;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .cat-en {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+      .cat-ar {
+        font-family: "Amiri", serif;
+        font-size: 14px;
+        direction: rtl;
+        opacity: 0.85;
+      }
+      .cat-items {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+      }
+      .cat-item .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .cat-item .name {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 14.5px;
+      }
+      .cat-item .price {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        opacity: 0.9;
+        white-space: nowrap;
+      }
+      .cat-item .ar {
+        font-family: "Amiri", serif;
+        font-size: 13px;
+        direction: rtl;
+        text-align: right;
+        opacity: 0.68;
+        margin-top: 2px;
+        line-height: 1.4;
+      }
+
+      /* card spans for magazine rhythm */
+      .span4 {
+        grid-column: span 4;
+      }
+      .span5 {
+        grid-column: span 5;
+      }
+      .span7 {
+        grid-column: span 7;
+      }
+      .span6 {
+        grid-column: span 6;
+      }
+      .span12 {
+        grid-column: span 12;
+      }
+
+      .footer {
+        grid-column: span 12;
+        background: var(--forest);
+        border-radius: 28px;
+        text-align: center;
+        padding: 22px;
+        color: var(--cream);
+      }
+      .footer .en {
+        font-size: 13px;
+        opacity: 0.75;
+        font-weight: 500;
+      }
+      .footer .ar {
+        font-family: "Amiri", serif;
+        font-size: 14px;
+        color: var(--mustard);
+        direction: rtl;
+        margin-top: 4px;
+      }
+
+      @media (max-width: 820px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          padding: 30px 24px;
+        }
+        .span4,
+        .span5,
+        .span6,
+        .span7 {
+          grid-column: span 12;
+        }
+      }
+
+      /* Keep every menu section single-column */
+      .cat-items {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 13px !important;
+      }
+
+      .cat-en {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="grid">
+        <!-- HERO -->
+        <div class="card hero">
+          <div class="type">
+            <h1>Zaytoun</h1>
+            <p class="ar">زيتون</p>
+            <p class="tag">
+              Lebanese table, home style — mezze, grill &amp; sweets
+            </p>
+          </div>
+          <svg
+            class="mark"
+            viewBox="0 0 140 140"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="#C1502E"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          >
+            <path d="M45 100 q0 -55 25 -70 q25 15 25 70 z" />
+            <path d="M95 75 q22 -4 22 12 q0 16 -22 14" />
+            <path d="M60 100 h30" />
+            <path d="M55 108 h40" />
+            <path d="M70 22 q-6 -10 0 -18" stroke-dasharray="3 4" />
+            <path d="M80 22 q6 -10 0 -18" stroke-dasharray="3 4" />
+            <circle cx="30" cy="35" r="2" fill="#C1502E" stroke="none" />
+            <circle cx="115" cy="40" r="2" fill="#C1502E" stroke="none" />
+            <circle cx="118" cy="95" r="2" fill="#C1502E" stroke="none" />
+          </svg>
+        </div>
+
+        <!-- COLD MEZZE -->
+        <div class="card cat light span5">
+          <div class="cat-head">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path d="M8 12h8M12 8v8" />
+            </svg>
+            <div class="titles">
+              <span class="cat-en">Cold Mezze</span
+              ><span class="cat-ar">مقبلات باردة</span>
+            </div>
+          </div>
+          <div class="cat-items">
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Hummus</span><span class="price">$7</span>
+              </div>
+              <div class="ar">حمص، طحينة، ليمون، ثوم، زيت زيتون</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Baba Ghanouj</span
+                ><span class="price">$8</span>
+              </div>
+              <div class="ar">باذنجان مشوي، طحينة، ثوم، ليمون</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Tabbouleh</span><span class="price">$9</span>
+              </div>
+              <div class="ar">بقدونس، برغل، طماطم، بصل، نعناع</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Fattoush</span><span class="price">$9</span>
+              </div>
+              <div class="ar">خس، طماطم، خيار، خبز محمص، دبس رمان</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Labneh</span><span class="price">$6</span>
+              </div>
+              <div class="ar">لبن مصفى، زيت زيتون، نعناع مجفف</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Warak Enab</span
+                ><span class="price">$8</span>
+              </div>
+              <div class="ar">ورق عنب، أرز، طماطم، نعناع، ليمون</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOT MEZZE -->
+        <div class="card cat dark span7">
+          <div class="cat-head">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M4 15c2-6 6-10 8-11 2 1 6 5 8 11-2 3-6 5-8 5s-6-2-8-5z"
+              />
+            </svg>
+            <div class="titles">
+              <span class="cat-en">Hot Mezze</span
+              ><span class="cat-ar">مقبلات ساخنة</span>
+            </div>
+          </div>
+          <div
+            class="cat-items"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 14px 20px;
+            "
+          >
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Kibbeh</span><span class="price">$9</span>
+              </div>
+              <div class="ar">برغل، لحم مفروم، صنوبر، بصل</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Sambousek</span><span class="price">$8</span>
+              </div>
+              <div class="ar">عجين، لحم أو جبنة، بصل، صنوبر</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Falafel</span><span class="price">$7</span>
+              </div>
+              <div class="ar">حمص، فول، كزبرة، ثوم، بهارات</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Batata Harra</span
+                ><span class="price">$7</span>
+              </div>
+              <div class="ar">بطاطا، فلفل حار، ثوم، كزبرة</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Cheese Rolls</span
+                ><span class="price">$8</span>
+              </div>
+              <div class="ar">جبنة، عجين رقاق، نعناع</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MASHAWI -->
+        <div class="card cat rust span7">
+          <div class="cat-head">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M4 20l6-14 6 14M6 15h8" />
+            </svg>
+            <div class="titles">
+              <span class="cat-en">Mashawi — Grill</span
+              ><span class="cat-ar">مشاوي</span>
+            </div>
+          </div>
+          <div
+            class="cat-items"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 14px 20px;
+            "
+          >
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Shish Taouk</span
+                ><span class="price">$17</span>
+              </div>
+              <div class="ar">دجاج متبل، ثوم، ليمون، لبن</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Kafta</span><span class="price">$18</span>
+              </div>
+              <div class="ar">لحم مفروم، بصل، بقدونس، بهارات</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Lamb Chops</span
+                ><span class="price">$26</span>
+              </div>
+              <div class="ar">ريش غنم، ثوم، زعتر، زيت زيتون</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Mixed Grill</span
+                ><span class="price">$29</span>
+              </div>
+              <div class="ar">كفتة، شيش طاووق، ريش غنم</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAINS -->
+        <div class="card cat light span5">
+          <div class="cat-head">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M4 6h16M6 6v11a2 2 0 002 2h8a2 2 0 002-2V6M10 10v6M14 10v6"
+              />
+            </svg>
+            <div class="titles">
+              <span class="cat-en">Main Dishes</span
+              ><span class="cat-ar">أطباق رئيسية</span>
+            </div>
+          </div>
+          <div class="cat-items">
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Mloukhieh</span
+                ><span class="price">$16</span>
+              </div>
+              <div class="ar">ملوخية، دجاج، ثوم، كزبرة، أرز</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Sayadieh</span><span class="price">$19</span>
+              </div>
+              <div class="ar">سمك، أرز، بصل مقلي، صنوبر</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Freekeh &amp; Chicken</span
+                ><span class="price">$17</span>
+              </div>
+              <div class="ar">فريكة، دجاج، لوز، بهارات</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SANDWICHES -->
+        <div class="card cat mustard span4">
+          <div class="cat-head">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M4 8h16l-2 11H6L4 8zM8 8V6a4 4 0 018 0v2" />
+            </svg>
+            <div class="titles">
+              <span class="cat-en">Sandwiches</span
+              ><span class="cat-ar">سندويشات</span>
+            </div>
+          </div>
+          <div class="cat-items">
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Shawarma</span><span class="price">$10</span>
+              </div>
+              <div class="ar">لحم أو دجاج، ثوم، مخلل، بطاطا</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Falafel Wrap</span
+                ><span class="price">$8</span>
+              </div>
+              <div class="ar">فلافل، طحينة، مخلل، خس، طماطم</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SWEETS -->
+        <div class="card cat dark span4">
+          <div class="cat-head">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M6 3h12l-1 9a5 5 0 01-10 0L6 3zM9 21h6M12 15v6" />
+            </svg>
+            <div class="titles">
+              <span class="cat-en">Sweets</span
+              ><span class="cat-ar">حلويات</span>
+            </div>
+          </div>
+          <div class="cat-items">
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Baklava</span><span class="price">$6</span>
+              </div>
+              <div class="ar">عجينة فيلو، جوز، صنوبر، شربات</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Knefeh</span><span class="price">$8</span>
+              </div>
+              <div class="ar">جبنة، سميد، قطر، فستق حلبي</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Muhallabia</span
+                ><span class="price">$6</span>
+              </div>
+              <div class="ar">حليب، نشا، ماء ورد، فستق</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="card cat rust span4">
+          <div class="cat-head">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M5 3v6a5 5 0 0010 0V3M8 21h4M10 14v7" />
+            </svg>
+            <div class="titles">
+              <span class="cat-en">Drinks</span
+              ><span class="cat-ar">مشروبات</span>
+            </div>
+          </div>
+          <div class="cat-items">
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Jallab</span><span class="price">$5</span>
+              </div>
+              <div class="ar">دبس تمر، ماء ورد، صنوبر، ثلج</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Mint Lemonade</span
+                ><span class="price">$5</span>
+              </div>
+              <div class="ar">ليمون، نعناع، سكر</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Arabic Coffee</span
+                ><span class="price">$4</span>
+              </div>
+              <div class="ar">قهوة عربية، هيل</div>
+            </div>
+            <div class="cat-item">
+              <div class="row">
+                <span class="name">Ayran</span><span class="price">$4</span>
+              </div>
+              <div class="ar">لبن، ماء، ملح</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="en">Please let us know about any allergies</div>
+          <div class="ar">يرجى إخبارنا بأي حساسية تجاه الطعام</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
